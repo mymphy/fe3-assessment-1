@@ -61,7 +61,7 @@ d3.tsv("languages.tsv", function(error, data) {
     */
 
     // x axis
-    g.append("g") // Create "g" element inside the g element created in line 17.
+    g.append("g") // Create "g" element inside the g element created in line 20.
         .attr("class", "x axis") // Add class element with the name of "x axis".
         .attr("transform", "translate(0," + height + ")")  // Calculates where the x axis has to appear. 
         .call(d3.axisBottom(x).ticks().tickFormat(function(d) { return parseInt(d / 1000000); }).tickSizeInner([-height]))
@@ -82,7 +82,7 @@ d3.tsv("languages.tsv", function(error, data) {
         */
 
     // Y axis
-    g.append("g") // Create "g" element inside the g element created in line 17. 
+    g.append("g") // Create "g" element inside the g element created in line 20. 
         .attr("class", "y axis") // Add class element with the name of "y axis".
         .call(d3.axisLeft(y)) // Assign the data of the y axis to show on the the left of the axis
         .append("text") // Add text 
@@ -95,7 +95,7 @@ d3.tsv("languages.tsv", function(error, data) {
     var graphBar = g.selectAll(".bar") // selectAll() is used to get a selection of
                                       // elements, and data() is bound to them. 
         .data(data) //enter() is used to add the elements to the chart.
-        .enter().append("rect")  // Create "rect" element inside the g element created in line 17. 
+        .enter().append("rect")  // Create "rect" element inside the g element created in line 20. 
         .attr("class", "bar")  // Add class element with the name of "bar".
         .attr("x", 0) // Start x position. 
         .attr("height", y.bandwidth()) // Y position is assigned to the y bandwidth. 
