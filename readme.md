@@ -1,4 +1,4 @@
-# Bar chart
+# Languages bar chart
 
 
 
