@@ -1,73 +1,77 @@
-# ![Assessment 1][banner]
+# Bar chart
 
-This repository can be forked for [**assessment 1**][a1] of [Frontend 3][fe3]
-at [**@CMDA**][cmda].
 
-## TODO
 
-*   [ ] [GitHub Pages](#github-pages)
-*   [ ] [Metadata](#metadata)
-*   [ ] [Workflow](#workflow)
-*   [ ] Replace this document in your fork with your own readme!
+A bar chart visualising the spoken languages and the number of speakers based on a [`bl.ock`][block] by **Alan Dunning** (MIT). 
+<!-- Change link -->
 
-## GitHub Pages
+![Alt text](preview.png)
 
-Set up [GitHub Pages][pages] for this fork through the **Settings** pane.  Use
-the **Master branch** as its source.
+## Background
 
-## Metadata
+For assessment 1 I wanted to create a bar chart that showed all the information needed for someone to be able to read it and make it a bit interactive with hovers effect. 
+The bar chart is arranged by values order with on the y axis the languages spoken and on the x axis the numbers of speakers. Bij hovering on the bars a tooltip will appear with inside the name of the hovered language and the number of the speakers of it. On hovering the bar will also turn the opacity down to be clear to the user from which bar he is getting the information of it. 
 
-Edit the **description** and **url** of your repository.  Click on edit above
-the green Clone or download button and fill in your correct information.
+## Data
 
-## Workflow
+Tab-separated values (TSV) with 26 rows and two columns:
 
-How you go about your project is up to you other than that it must meet the
-given requirements.  The following steps may help to tackle this challenge
-though.
+* `language` — Name of language
+* `speakers` — Estimated number of total speakers
 
-###### Explore
+The data from the TSV file has:
+* 26 rows
+* 2 columns
+    * Name of languages 
+    * Numbers of how many people speak the language
+    
+Languages listed was crawled from [wikipedia.org](https://en.wikipedia.org/wiki/List_of_languages_by_total_number_of_speakers).
 
-Explore the [data][].  Make sense of the rows, columns, and what they contain.
-Investigate interesting aspects and possible outcomes.  Figure out what type of
-chart you want and sketch your visualisation.
+## Features
 
-List the features needed to make your chart work and make sure they match our
-[rubric][].  For example, pie charts or donut charts often lack features needed
-to get good grades in the **application of subject matter** category.  You must
-compensate with other useful features to get a good grade in this case.
+* [`d3-scale`](https://github.com/d3/d3-scale#api-reference)
+    — `d3.scaleLinear`
+        Also known as a continuous scale because it maps a serial set of input values to output values. We can use that in a table to make the data grow to fit a specific range and domain. The range represents the values that we want to scale our data to.
+    — `d3.scaleBand` 
+        It maps a serial set of input values to output values. With a domain and a range, but also a couple of additional methods to control the spacing in between the bars. With the scale you can use the bandwidth method.
+* [`d3-request`](https://github.com/d3/d3-request#api-reference)
+    — `d3.tsv`
+        Used for loading files
+*   [`d3-axis`](https://github.com/d3/d3-axis#api-reference)
+    — `d3.axisBottom` and `d3.axisLeft`
+        Reference marks for scales
+*   [`d3-selection`](https://github.com/d3/d3-selection#api-reference)
+    — `d3.selectAll`
+        used to get a selection of elements, and data() is bound to them. 
+*   [`d3.mouse`](https://github.com/d3/d3-selection/blob/master/README.md#selection_on)
+    — `mousemove`
+        Mousemove event triggers every time the mouse pointer is moved over the div element.
+    — `mouseover`
+        Mouseover event triggers when the mouse pointer enters the div element.
+     — `mouseout`
+         Mouseout event occurs when the mouse pointer is moved out of the div element
 
-Pick the most enticing data and copy it to your fork.
+## To do
+- [ ] Sorting data A-Z / Z-A
+- [ ] Add some animation
 
-###### Process
+## The challenge
+I really liked working with de d3js. I wished I had more time to try more features and make it more interactive. It was kind of hard to start with it in the beginning, because I didn't know if I started form scratch or took an already existing bar chart to use it as basis. Because of the short time to do this assessment I chose my second option and started to look for a base chart to start with. 
 
-Describe the purpose and background of your visualisation in your fork’s readme.
-Portray your data and list the d3 features.
+I found a lot of charts and tried to work with it and understand how d3js code works. I also took a [Lynda.com course](https://www.lynda.com/D3-js-tutorials/Learning-Data-Visualization-D3-js/594451-2.html), it helped me a lot to understand better the structure of the code. 
 
-Start writing code.  Feel free to use example code found on the web but make
-sure to include correct citations.  Use inline code comments to describe
-anything of interest.  Don’t forget to document your process.
+When I finally started coding I used ["Horizontal Bar Chart"](https://bl.ocks.org/alandunning/7008d0332cc28a826b37b3cf6e7bd998) as a base. I changed a couple of code to something that I understand better and added a few features to it. Like the color change, the text on the axis and the extra hover opacity effect.
 
-###### Review
+## Links used for research
 
-Finish up your readme and review your project.  Audit the code and docs.
-Evaluate whether the project matches our [rubric][] and make changes where
-needed.
+* [Github d3](https://github.com/d3/d3/)
+* [Setting up the margins and the graph area.](http://www.d3noob.org/2012/12/setting-up-margins-and-graph-area.html)
+* [Margin Convention](https://bl.ocks.org/mbostock/3019563)
+* [Basic D3 Graphs](https://website.education.wisc.edu/~swu28/d3t/visualization.html)
+*[Lynda: Learning Data Visualization with D3.js](https://www.lynda.com/D3-js-tutorials/Learning-Data-Visualization-D3-js/594451-2.html)
 
-Include anything you’re particularly proud of and mention anything that was
-exceptionally hard to accomplish in your readme to make sure lecturers don’t
-miss it!  🌟
+## License
 
-[banner]: https://cdn.rawgit.com/cmda-fe3/logo/3b150735/banner-assessment-1.svg
+[MIT](https://opensource.org/licenses/MIT) © Luisa Braga dos Santos
 
-[a1]: https://github.com/cmda-fe3/course-17-18/tree/master/assessment-1#description
-
-[data]: https://github.com/cmda-fe3/course-17-18/tree/master/assessment-1#data
-
-[rubric]: https://github.com/cmda-fe3/course-17-18/tree/master/assessment-1#rubric
-
-[fe3]: https://github.com/cmda-fe3
-
-[cmda]: https://github.com/cmda
-
-[pages]: https://pages.github.com
+[block]: https://bl.ocks.org/alandunning/7008d0332cc28a826b37b3cf6e7bd998
