@@ -1,0 +1,32 @@
+/* Based on https://bl.ocks.org/alandunning/7008d0332cc28a826b37b3cf6e7bd998 by Alan Dunning */
+body {
+    margin: 1em;
+    background-color: #F1F3F3    
+  }
+
+  .axis path,
+  .axis line {
+    fill: none;
+    stroke: #D4D8DA;
+    stroke-width: 1px;
+  }
+  .x path {
+      display: none;
+  }
+  .toolTip {
+      position: absolute;
+    display: none;
+    min-width: 5em;
+    height: auto;
+    background: none repeat scroll 0 0 #ffffff;
+    border: 1px solid #c61c6f;
+    padding: .8em;
+    text-align: center;
+  }
+  svg{
+      width: 100vw;
+      height: 100vh;
+  }
+  text{
+      fill: #000;
+  }
